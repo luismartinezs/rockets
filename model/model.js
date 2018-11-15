@@ -30,14 +30,12 @@ class Rocket {
         this._propellers.forEach( (propeller) => {
             propeller.accelerate();
         })
-        return this;
     }
 
     deccelerate() {
         this._propellers.forEach( (propeller) => {
             propeller.deccelerate();
         })
-        return this;
     }
 
 }

@@ -19,38 +19,59 @@ let rocketContainer = document.querySelector('#rocketContainer');
 
 let rocketCollection = [];
 
-// for (let i in rockets) {
-//     rockets[i].accelerate().accelerate().accelerate();
-// }
+function createRocket(index) {
+    let rocket = rockets[index];
 
-// rockets[0].deccelerate().deccelerate().deccelerate().deccelerate().deccelerate();
-// rockets[1].accelerate().accelerate().accelerate().accelerate().accelerate().accelerate().accelerate();
+    let rocketBtn = document.querySelector(`#rocket${index + 1}-btn`);
+    rocketBtn.classList.add('disabled');
 
-// for (let i=0; i<15; i++) {
-//     rockets[0].accelerate();
-//     rockets[1].accelerate();
-// }
+    if ( document.querySelector(`#rocket${index + 1}`) ) {
+        return;
+    }
 
-rockets.forEach( (rocket) => {
     let rocketElem = document.createElement('div');
-    let propellerLi = rocket.propellers.map( (propeller) => {
+    let propellerLi = rocket.propellers.map((propeller) => {
         return `<li>Max power = ${propeller.maxPower}</li>`;
     });
-    rocketElem.classList.add('col');
-    rocketElem.innerHTML = `<div class='col'>
-    <div id='rocket${rockets.indexOf(rocket)}' class='card'>
-        <h2 class='card-header'>Rocket ${rockets.indexOf(rocket)}</h2>
+    let style = `order-${index + 1}`
+    rocketElem.classList.add('col-12', 'col-sm-6', 'mb-2', 'mx-0' , style);
+    rocketElem.innerHTML = `<div>
+    <div id='rocket${index + 1}' class='card'>
+        <h2 class='card-header'><i class="fas fa-rocket"></i> Rocket ${index + 1}</h2>
         <div class='card-body'>
             <p class='card-text'>Code: ${rocket.code}</p>
             <p class='card-text'># Propellers: ${rocket.getPropellerNum()}</p>
             <ol>
                 ${propellerLi.join('')}
             </ol>
-            <p class='card-text'>Current speed: ${rocket.getSpeed()}</p>
+            <p id='rocket${index + 1}Speed' class='card-text'>Current speed: ${rocket.getSpeed()}</p>
+                <button class='btn btn-secondary mb-1' role='button' onclick='accelerateRocket(${index})'>Accelerate</button>
+                <button class='btn btn-secondary mb-1' role='button' onclick='deccelerateRocket(${index})'>Deccelerate</button>
         </div>
     </div>
     </div>`;
 
     rocketContainer.appendChild(rocketElem);
-})
+}
 
+function accelerateRocket(index) {
+    let rocket = rockets[index];
+
+    rocket.accelerate();
+
+    let rocketElem = document.querySelector(`#rocket${index + 1}`);
+
+    rocketElem.querySelector(`#rocket${index + 1}Speed`).textContent = `Current speed: ${rocket.getSpeed()}`;
+
+}
+
+function deccelerateRocket(index) {
+    let rocket = rockets[index];
+
+    rocket.deccelerate();
+
+    let rocketElem = document.querySelector(`#rocket${index + 1}`);
+
+    rocketElem.querySelector(`#rocket${index + 1}Speed`).textContent = `Current speed: ${rocket.getSpeed()}`;
+
+}
