@@ -2,7 +2,7 @@
 
 Test the user interface: https://luismartinezs.github.io/rockets/
 
-Classroom exercise to demonstrate knowledge on JS DOM, ES6 and OOP.
+Classroom exercise to demonstrate knowledge on JS DOM, ES6, OOP and VCM pattern.
 
 The program generates two rocket objects upon user interaction with a simple interface.
 Each rocket has a predefined number of propellers.
