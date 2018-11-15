@@ -26,11 +26,13 @@ function createRocket(index) {
     }
 
     let rocketElem = document.createElement('div');
+    
     let propellerLi = rocket.propellers.map((propeller) => {
         return `<li>Max power = ${propeller.maxPower}</li>`;
     });
-    let style = `order-${index + 1}`
-    rocketElem.classList.add('col-12', 'col-sm-6', 'mb-2', 'mx-0' , style);
+
+    rocketElem.classList.add('col-12', 'col-sm-6', 'mb-2', 'mx-0' , `order-${index + 1}`);
+    
     rocketElem.innerHTML = `<div>
     <div id='rocket${index + 1}' class='card'>
         <h2 class='card-header'><i class="fas fa-rocket"></i> Rocket ${index + 1}</h2>
