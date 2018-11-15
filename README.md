@@ -1,4 +1,4 @@
-# rockets
+# Rockets
 
 Test the user interface: https://luismartinezs.github.io/rockets/
 
