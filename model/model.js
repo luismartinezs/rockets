@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 class Rocket {
     constructor(code) {
@@ -23,7 +23,7 @@ class Rocket {
     }
 
     getSpeed() {
-        return this.propellers.reduce((sum, elem) => {return sum += elem.currentPower}, 0)
+        return this.propellers.reduce((sum, elem) => {return sum += elem.currentPower}, 0);
     }
 
     accelerate() {

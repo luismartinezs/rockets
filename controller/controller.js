@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 let rockets = [];
 
@@ -13,11 +13,7 @@ for (let i of [30, 40, 50, 50, 30, 10]) {
     rockets[1].addPropeller(i);
 }
 
-console.log(rockets[0].getSpeed());
-
 let rocketContainer = document.querySelector('#rocketContainer');
-
-let rocketCollection = [];
 
 function createRocket(index) {
     let rocket = rockets[index];
@@ -45,8 +41,8 @@ function createRocket(index) {
                 ${propellerLi.join('')}
             </ol>
             <p id='rocket${index + 1}Speed' class='card-text'>Current speed: ${rocket.getSpeed()}</p>
-                <button class='btn btn-secondary mb-1' role='button' onclick='accelerateRocket(${index})'>Accelerate</button>
-                <button class='btn btn-secondary mb-1' role='button' onclick='deccelerateRocket(${index})'>Deccelerate</button>
+                <button class='btn btn-secondary mb-1' onclick='accelerateRocket(${index})'>Accelerate</button>
+                <button class='btn btn-secondary mb-1' onclick='deccelerateRocket(${index})'>Deccelerate</button>
         </div>
     </div>
     </div>`;
