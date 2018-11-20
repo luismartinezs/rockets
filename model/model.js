@@ -55,17 +55,15 @@ class Propeller {
     }
 
     accelerate() {
-        if (this._currentPower < this._maxPower - 10) {
-            this._currentPower += 10;
-        } else {
+        this._currentPower += 10;
+        if (this._currentPower > this._maxPower) {
             this._currentPower = this._maxPower;
         }
     }
 
     deccelerate() {
-        if (this._currentPower > 10) {
-            this._currentPower -= 10;
-        } else {
+        this._currentPower -= 10;
+        if (this._currentPower < 0) {
             this._currentPower = 0;
         }
     }
