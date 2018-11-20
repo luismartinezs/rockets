@@ -2,6 +2,10 @@
 
 class Rocket {
     constructor(code) {
+        if (code.length != 8) {
+            code = ('0'.repeat(8) + code).slice(-8);
+            console.info('Rocket code will be adjusted to match 8 characters!');
+        }
         this._code = code;
         this._propellers = [];
     }
